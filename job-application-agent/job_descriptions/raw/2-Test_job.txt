@@ -1,0 +1,52 @@
+https://jobs.hirewithnear.com/#/jobs/3618
+
+AI Automation Engineer
+IT & Engineering
+Full-time Apr 24, 2026
+About Us:
+At Near, we help top talent in Latin America find remote roles with US companies. Our mission is to create better lives by fostering a remote work culture that transcends borders.
+About Our Client:
+They are a U.S.-based investment and management group that partners with established businesses to accelerate growth through strategic guidance, operational support, and access to capital. Their portfolio spans industries such as home improvement, renewable energy, and real estate, where they focus on scaling operations, driving profitability, and unlocking long-term value.
+About the Role:
+We are looking for an AI Automation Engineer to support the development of AI-powered tools and workflows across internal teams and portfolio companies.
+This is a hands-on, execution-focused role where you will work closely with business stakeholders to turn ideas into functional AI solutions. You will not be working alone — you will have guidance and oversight from senior technical leadership — making this an excellent opportunity for someone earlier in their career who is eager to grow in AI and automation.
+Responsibilities
+As an AI Automation Engineer, you will be responsible for:
+AI & Automation Development
+Build and deploy AI-powered workflows and automations to improve business processes
+Assist in developing agent-based solutions for research, data processing, and operations
+Work with LLM APIs and prompt engineering to create practical use cases
+Integration & Technical Execution
+Develop and maintain API integrations (REST, webhooks, third-party tools)
+Support automation across platforms such as Zapier, Make, or n8n
+Help debug and optimize existing workflows and systems
+Collaboration & Problem Solving
+Work closely with business stakeholders to understand needs and translate them into technical solutions
+Collaborate with the CTO and senior team members for guidance and code review
+Rapidly prototype and iterate on new ideas
+Documentation & Continuous Improvement
+Document systems, workflows, and processes
+Identify opportunities to automate manual work across the organization
+Qualifications
+Bachelor’s degree in Computer Science, Engineering, or a related field (or equivalent experience)
+2–4 years of experience in software engineering, automation, or related roles
+Strong proficiency in Python
+Basic experience working with APIs (REST, webhooks, authentication)
+Exposure to LLMs and prompt engineering (OpenAI, Claude, etc.)
+Familiarity with automation tools such as Zapier, Make, or n8n
+Strong problem-solving skills and willingness to learn
+Ability to work in a fast-paced, ambiguous environment
+Preferred Qualifications
+Experience building small AI tools, automations, or side projects
+Familiarity with agent-based frameworks (can be learned on the job)
+Basic knowledge of databases or cloud platforms (e.g., AWS, Supabase)
+Some front-end or dashboard experience
+Experience working with U.S.-based teams
+Conversational English (fluency is a plus)
+What’s in It for You?
+$3,500 – $4,000/month
+2 weeks of PTO
+US holidays
+High-growth opportunity working directly with business and technical leadership
+Exposure to real-world AI applications across multiple industries
+Please note that the final salary offer will fall within the stated range and will depend on the candidate’s seniority, specific skill set, and performance throughout the evaluation and interview process.

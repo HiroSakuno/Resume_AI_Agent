@@ -1,0 +1,58 @@
+AI Workflow Automation Specialist
+IT & Engineering
+Full-time May 21, 2026
+About Us
+At Near, we help top talent in Latin America find remote roles with U.S. companies. Our mission is to create better lives by fostering a remote work culture that transcends borders.
+About Our Client
+They are a U.S.-based marketing and automation agency building a next-generation AI workflow platform for service-based businesses. The company operates both a traditional growth agency and a fast-growing AI automation division focused on designing and implementing intelligent business systems that improve lead handling, onboarding, customer communication, and operational efficiency.
+They are actively building and iterating a production MVP using tools like n8n, GoHighLevel, Make, Zapier, OpenAI, and Anthropic, while developing scalable automation systems for client-facing environments.
+About the Role
+This is a hands-on workflow builder role, not a traditional project management or software engineering position.
+We are looking for someone who works daily in low-code automation tools (especially n8n and GoHighLevel) to design, build, and maintain production workflows for real clients.
+You will be directly responsible for implementing AI-powered automations that support lead management, onboarding, CRM operations, and client communication systems.
+This role is execution-focused. The ideal candidate is someone who thrives in fast-moving environments, builds and iterates quickly, and is comfortable owning client-facing automation workflows from setup to ongoing optimization.
+This is not an AI research, machine learning, or software architecture role. It is a builder/operator role focused on delivering reliable, production-ready automation systems.
+Responsibilities
+• Lead onboarding and implementation of automation workflows for clients
+• Translate client requirements into functional, scalable low-code workflows
+• Act as the primary point of contact during implementation and rollout phases
+• Build, configure, test, and maintain workflows using tools like n8n, GoHighLevel, Make, and Zapier
+• Implement AI functionality inside workflows using APIs such as OpenAI and Anthropic
+• Optimize existing workflows based on performance, client feedback, and operational needs
+• Ensure workflows are stable, reliable, and easy for clients to use
+• Troubleshoot and resolve issues in live production environments
+• Work closely with internal team members to improve automation systems and processes
+• Continuously iterate on onboarding and implementation workflows to improve efficiency
+• Support the development of scalable internal automation templates and systems
+• Collaborate with sales, operations, and technical teams to ensure successful delivery
+• Provide feedback based on real client usage to improve systems and workflows
+• Document workflows, processes, and implementation standards clearly for internal use
+Qualifications
+• 3–5+ years of experience in automation, operations, workflow building, or similar hands-on execution roles
+• Strong daily experience building production workflows in n8n, GoHighLevel, Make, Zapier, or similar low-code platforms
+• Experience implementing CRM-based automation and lead management workflows
+• Hands-on experience working with AI APIs (OpenAI, Anthropic, etc.) inside automation tools
+• Strong understanding of how to build reliable, production-ready workflows (not prototypes)
+• Experience working directly with clients in implementation, onboarding, or operational roles
+• Strong English communication skills in client-facing environments
+• Spanish proficiency is a strong plus for the company’s U.S. Hispanic client base
+• Proven ability to take ownership and independently drive projects from setup to completion
+• Strong problem-solving mindset with high execution speed
+• Comfortable working in fast-paced startup environments with evolving priorities
+• U.S.-friendly working hours (8am–5pm CST preferred)
+Preferred Qualifications
+• Experience building client-facing automation or onboarding systems
+• Experience with GoHighLevel (GHL) or similar CRM automation platforms
+• Exposure to marketing automation, lead generation workflows, or sales pipelines
+• Experience working with APIs and connecting multiple SaaS tools
+• Experience improving operational systems in live client environments
+• Background in SMB-focused automation rather than enterprise systems
+• Experience documenting workflows and operational processes clearly
+• Previous startup or agency experience is a strong plus
+What’s in It for You?
+• $2,500 USD/month
+• Opportunity to work directly on real-world AI automation systems in production
+• Hands-on experience with modern automation tools and AI integrations
+• Fully remote long-term opportunity
+• Direct exposure to U.S.-based clients and leadership teams
+• Fast-paced environment with strong ownership and growth potential

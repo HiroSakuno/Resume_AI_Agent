@@ -1,0 +1,41 @@
+name: Hiro Sakuno
+title: Senior BI Engineer / Data Engineer
+email: hirosakuno@gmail.com
+portfolio: https://portfolio.mindthedata.com.br
+location: Brazil
+work_preference: Remote
+linkedin: ""
+github: ""
+target_roles:
+  - Senior BI Engineer
+  - Senior Power BI Developer
+  - BI Architect
+  - Data Analyst
+  - Data Engineer
+  - AI Engineer
+  - AI Agent Developer
+summary: >
+  I'm a Microsoft-certified Senior BI Engineer and Data Analyst (PL-300)
+  with over 4 years of professional experience delivering Business
+  Intelligence, Analytics, and Data Platform solutions.
+
+  I have worked with international companies, building reporting solutions
+  from scratch that served thousands of users. Throughout my career,
+  I have designed data models, developed Power BI solutions used by business
+  stakeholders across multiple regions, and supported large-scale
+  transformation initiatives involving SAP, Azure, and Databricks.
+
+  In my recent experience, I have supported SAP ECC to SAP S/4HANA reporting
+  migration initiatives, analyzed Power BI metadata using TMDL and LLM-based
+  tools, and optimized Power BI environments by improving semantic models,
+  DAX calculations, and ETL processes. These initiatives helped reduce Power BI
+  capacity consumption by approximately 50% while improving report performance,
+  maintainability, and user experience.
+
+  Technologies I have worked with professionally include Power BI, DAX,
+  Power Query (M), SQL, Databricks, Tabular Editor, Oracle, SQL Server,
+  PostgreSQL, AWS Redshift, Dataflows, ETL Development, Row-Level Security
+  (RLS), TMDL, OpenAI Codex, LLMs, n8n, Microsoft Foundry, and Azure AI Foundry.
+
+  Contact me at: hirosakuno@gmail.com
+  Portfolio: https://portfolio.mindthedata.com.br

@@ -1,0 +1,151 @@
+skills:
+  bi_and_analytics:
+    label: BI & Analytics
+    items:
+      - Power BI
+      - DAX
+      - Power Query
+      - M Language
+      - Data Modeling
+      - Semantic Models
+      - Power BI Service
+      - Power BI Desktop
+      - Row-Level Security (RLS)
+      - Paginated Reports
+      - Microsoft Report Builder
+      - DirectQuery
+      - Import Mode
+      - Incremental Refresh
+      - Dataflows
+      - DAX Studio
+      - Tabular Editor 3
+      - ALM Toolkit
+      - Performance Optimization
+      - Capacity Optimization
+      - Report Optimization
+      - Dashboard Development
+      - Executive Dashboards
+      - KPI Development
+      - UX/UI for BI
+      - Star Schema
+      - Data Visualization
+      - Self-Service BI
+
+  data_engineering:
+    label: Data Engineering
+    items:
+      - SQL
+      - Advanced SQL
+      - ETL Development
+      - ELT
+      - Data Transformation
+      - Data Validation
+      - Data Quality
+      - Data Discovery
+      - Data Mapping
+      - Data Modeling
+      - Databricks
+      - Azure Databricks
+      - Azure Data Lake
+      - Azure Synapse
+      - AWS Redshift
+      - AWS Athena
+      - Airflow
+      - Python
+      - PL/SQL
+      - Data Pipelines
+      - SQL Pushdown
+      - Query Optimization
+      - Incremental Data Processing
+
+  databases_and_sources:
+    label: Databases & Data Sources
+    items:
+      - Oracle
+      - SQL Server
+      - PostgreSQL
+      - MySQL
+      - AWS Redshift
+      - AWS Athena
+      - SAP ECC
+      - SAP S/4HANA
+      - SAP Tables
+      - SharePoint
+      - Excel
+      - APIs
+      - CSV
+      - Flat Files
+
+  ai_and_automation:
+    label: AI & Automation
+    items:
+      - Microsoft Foundry
+      - Azure AI Foundry
+      - Azure OpenAI
+      - AI Agent Development
+      - Agent Orchestration
+      - Semantic Kernel
+      - LLMs
+      - OpenAI Codex
+      - Prompt Engineering
+      - n8n
+      - AI-Assisted Development
+      - AI for BI
+      - AI for Data Analysis
+      - Python Automation
+      - Power Automate
+
+  sap_and_erp:
+    label: SAP & ERP Migration
+    items:
+      - SAP ECC
+      - SAP S/4HANA
+      - ERP Migration
+      - SAP Reporting Migration
+      - ECC to S/4HANA Migration
+      - SAP Data Mapping
+      - SAP Table Mapping
+      - SAP Data Validation
+      - Report Migration
+      - TMDL
+      - Power BI Metadata Analysis
+      - Report Dependency Analysis
+      - Business Logic Mapping
+      - Data Lineage Analysis
+
+  tools_and_devops:
+    label: Tools & DevOps
+    items:
+      - GitHub
+      - Azure DevOps
+      - VS Code
+      - Jira
+      - Scrum
+      - SharePoint
+      - Excel
+      - Tabular Editor 3
+      - DAX Studio
+      - ALM Toolkit
+      - Microsoft Entra ID
+      - Azure AD Groups
+
+  business_domains:
+    label: Business Domains
+    items:
+      - Business Intelligence
+      - Analytics Engineering
+      - Executive Reporting
+      - Financial Reporting
+      - Operational Reporting
+      - Supply Chain Analytics
+      - Sales Analytics
+      - Market Research Analytics
+      - Banking & Finance Analytics
+      - Social Investment Reporting
+      - Pharmaceutical Analytics
+      - Manufacturing Analytics
+      - Accounting Analytics
+      - Data Validation
+      - Data Governance
+      - Business Requirements Mapping
+      - Stakeholder Management
