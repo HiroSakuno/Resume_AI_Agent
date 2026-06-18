@@ -30,31 +30,33 @@ projects:
         ATS-friendly resume and cover letter generation across different roles.
 
   - id: proj_002
-    name: Power BI Metadata and TMDL Analysis with AI
+    name: Natural Language SQL Agent
     year: "2025"
-    project_type: Professional AI-Assisted BI Project
+    project_type: AI Engineering Project (LLM + Agentic SQL Orchestration)
     summary: >
-      Used TMDL files and AI-assisted analysis to inspect Power BI metadata,
-      semantic model structure, report dependencies, relationships, and
-      business logic during SAP ECC to SAP S/4HANA reporting migration work.
+      Engineered an n8n-based LLM agent that converts natural language
+      analytics questions into executable Supabase SQL queries using
+      retrieval-augmented schema context, then returns accurate results in
+      plain language.
     tech_stack:
-      - Power BI
-      - TMDL
-      - Tabular Editor 3
-      - OpenAI Codex
-      - LLMs
       - SQL
-      - Databricks
-      - Python
-      - SAP ECC
-      - SAP S/4HANA
+      - n8n
+      - Supabase
+      - Vector Store (RAG)
+      - API Integration
+      - Prompt Engineering
+      - LLM Agent Orchestration
     highlights:
       - >
-        Analyzed Power BI report metadata, tables, relationships, dependencies,
-        and measures to support faster report mapping and migration readiness.
+        Designed a schema-aware NL-to-SQL pipeline that maps business questions
+        to relevant tables, joins, and filters before query generation.
       - >
-        Used AI-assisted development workflows to accelerate discovery of
-        business logic and dependencies across reporting assets.
+        Implemented RAG over table relationships, schema metadata, and business
+        constraints to improve query correctness and reduce hallucinated SQL.
       - >
-        Supported validation and transformation analysis for SAP ECC to SAP
-        S/4HANA reporting migration initiatives.
+        Orchestrated end-to-end execution in n8n, including input handling,
+        context retrieval, SQL generation, query execution, and response
+        synthesis.
+      - >
+        Delivered non-technical, natural language answers so stakeholders can
+        query production data without writing SQL.
