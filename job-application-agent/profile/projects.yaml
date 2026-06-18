@@ -1,0 +1,60 @@
+projects:
+  - id: proj_001
+    name: Resume AI Agent
+    year: "2026"
+    project_type: Personal AI Automation Project
+    summary: >
+      Built a local AI-assisted job application generator that uses structured
+      YAML profile data, job descriptions, prompt templates, and Claude to
+      generate tailored resumes, cover letters, ATS reports, and quality checks.
+    tech_stack:
+      - Python
+      - Claude
+      - YAML
+      - Markdown
+      - Prompt Engineering
+      - AI Automation
+      - DOCX Export
+      - PDF Export
+    highlights:
+      - >
+        Designed a multi-step application pipeline that parses job
+        descriptions, selects relevant candidate evidence, generates tailored
+        application materials, and saves structured outputs for review.
+      - >
+        Organized candidate profile data into reusable YAML files for
+        experience, skills, achievements, certifications, education, and
+        projects, keeping generated resumes grounded in verified information.
+      - >
+        Implemented reusable prompt and template files to support consistent,
+        ATS-friendly resume and cover letter generation across different roles.
+
+  - id: proj_002
+    name: Power BI Metadata and TMDL Analysis with AI
+    year: "2025"
+    project_type: Professional AI-Assisted BI Project
+    summary: >
+      Used TMDL files and AI-assisted analysis to inspect Power BI metadata,
+      semantic model structure, report dependencies, relationships, and
+      business logic during SAP ECC to SAP S/4HANA reporting migration work.
+    tech_stack:
+      - Power BI
+      - TMDL
+      - Tabular Editor 3
+      - OpenAI Codex
+      - LLMs
+      - SQL
+      - Databricks
+      - Python
+      - SAP ECC
+      - SAP S/4HANA
+    highlights:
+      - >
+        Analyzed Power BI report metadata, tables, relationships, dependencies,
+        and measures to support faster report mapping and migration readiness.
+      - >
+        Used AI-assisted development workflows to accelerate discovery of
+        business logic and dependencies across reporting assets.
+      - >
+        Supported validation and transformation analysis for SAP ECC to SAP
+        S/4HANA reporting migration initiatives.

@@ -50,6 +50,7 @@ Edit the YAML files in `profile/` with your real information:
 - `certifications.yaml` — your certifications
 - `education.yaml` — your education
 - `achievements.yaml` — key accomplishments with metrics
+- `projects.yaml` — personal or professional projects to use when relevant
 
 ## Usage
 

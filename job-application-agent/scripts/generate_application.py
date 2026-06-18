@@ -150,6 +150,7 @@ def step_02_select_experience(client, parsed_job: dict, profile: dict) -> dict:
     prompt_template = load_prompt("02_select_relevant_experience.md")
     prompt = prompt_template.format(
         experience_json=json.dumps(profile["experience"], indent=2, ensure_ascii=False),
+        projects_json=json.dumps(profile["projects"], indent=2, ensure_ascii=False),
         skills_json=json.dumps(profile["skills"], indent=2, ensure_ascii=False),
         achievements_json=json.dumps(profile["achievements"], indent=2, ensure_ascii=False),
         certifications_json=json.dumps(profile["certifications"], indent=2, ensure_ascii=False),
@@ -171,11 +172,23 @@ def step_03_generate_resume(
     selected_ids = selection.get("selected_experience_ids", [])
     selected_exp = [exp_map[eid] for eid in selected_ids if eid in exp_map]
 
+    projects = profile["projects"]
+    if isinstance(projects, dict) and "projects" in projects:
+        projects = projects["projects"]
+    project_map = {p["id"]: p for p in projects if isinstance(p, dict) and "id" in p}
+    selected_project_ids = selection.get("selected_project_ids", [])
+    selected_projects = [
+        project_map[project_id]
+        for project_id in selected_project_ids
+        if project_id in project_map
+    ]
+
     prompt_template = load_prompt("03_generate_resume.md")
     prompt = prompt_template.format(
         master_profile_json=json.dumps(profile["master"], indent=2, ensure_ascii=False),
         selection_json=json.dumps(selection, indent=2, ensure_ascii=False),
         selected_experience_json=json.dumps(selected_exp, indent=2, ensure_ascii=False),
+        selected_projects_json=json.dumps(selected_projects, indent=2, ensure_ascii=False),
         parsed_job_json=json.dumps(parsed_job, indent=2, ensure_ascii=False),
         resume_template=load_template("resume_template.md"),
         keywords_to_embed=", ".join(selection.get("keywords_to_embed", [])),
@@ -326,6 +339,7 @@ def load_all_profiles() -> dict:
         "certifications": load_yaml("certifications.yaml"),
         "education": load_yaml("education.yaml"),
         "achievements": load_yaml("achievements.yaml"),
+        "projects": load_yaml("projects.yaml"),
     }
 
 

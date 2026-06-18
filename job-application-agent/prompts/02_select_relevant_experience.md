@@ -10,6 +10,11 @@ and select the most relevant experience, achievements, and skills for the target
 {experience_json}
 ```
 
+### Projects
+```json
+{projects_json}
+```
+
 ### All Skills
 ```json
 {skills_json}
@@ -34,15 +39,17 @@ and select the most relevant experience, achievements, and skills for the target
 
 1. Select the TOP 2-3 experience entries most relevant to this role.
 2. For each selected experience, identify the 2-3 strongest achievements to highlight.
-3. Select the most relevant skills clusters (max 5 categories).
-4. Flag any skill GAPS — skills the JD requires that the candidate does not have.
-5. Identify keywords from the JD to naturally embed in the resume.
+3. Select up to 2 projects only when they are relevant to the target role.
+4. Select the most relevant skills clusters (max 5 categories).
+5. Flag any skill GAPS — skills the JD requires that the candidate does not have.
+6. Identify keywords from the JD to naturally embed in the resume.
 
 Return a JSON object with this EXACT structure:
 
 ```json
 {{
   "selected_experience_ids": ["exp_001", "exp_002"],
+  "selected_project_ids": ["proj_001"],
   "achievement_map": {{
     "exp_001": ["achievement text 1", "achievement text 2"],
     "exp_002": ["achievement text 1"]
