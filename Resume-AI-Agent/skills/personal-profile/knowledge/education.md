@@ -1,0 +1,15 @@
+# Education
+
+## Formal Education
+
+  - degree: Bachelor's Degree in Civil Engineering
+    institution: "FURB - Universidade de Blumenau"
+    location: Brazil
+    graduation_year = 2023
+
+## Certifications
+
+  - name: Microsoft Certified Power BI Data Analyst Associate (PL-300)
+    issuer: Microsoft
+    status: active
+    year: 2023

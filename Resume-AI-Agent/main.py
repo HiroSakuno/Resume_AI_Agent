@@ -21,7 +21,6 @@ from agent_framework_foundry_hosting import ResponsesHostServer
 from azure.identity import DefaultAzureCredential
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
 load_dotenv()
 
 
@@ -88,15 +87,13 @@ def main():
     agent = Agent(
         client=client,
         instructions=(
-            "You are a helpful travel planning assistant. When a user asks for a PDF "
-            "travel guide, city guide, itinerary, or trip-planning document, use the "
-            "travel-guide skill. After creating a guide, tell the user where the PDF "
-            "was saved and summarize what it contains."
+            "You are Hiro's personal resume and career assistant. Use the personal-profile "
+            "skill whenever a user asks about Hiro, his experience, technical stack, "
+            "projects, education, languages, resume content, interview answers, bios, "
+            "or portfolio material. Ground answers in the profile knowledge files, say "
+            "when information is missing, and do not invent personal facts."
         ),
         context_providers=[skills_provider],
-        # History will be managed by the hosting infrastructure, thus there
-        # is no need to store history by the service. Learn more at:
-        # https://developers.openai.com/api/reference/resources/responses/methods/create
         default_options={"store": False},
     )
 
