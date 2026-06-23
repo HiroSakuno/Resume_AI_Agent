@@ -1,0 +1,38 @@
+{
+  "projects": [
+    {
+      "name": "Resume AI Agent",
+      "summary": "Microsoft Foundry hosted agent built with Agent Framework.",
+      "technologies": [
+        "Python",
+        "Agent Framework",
+        "file-based skills",
+        "Azure AI Foundry",
+        "Azure OpenAI (GPT-4.1/4o)",
+        "Prompt Flow",
+        "Semantic Kernel",
+        "GitHub"
+      ],
+      "purpose": "Generate the best Resume based on my real experiences from previous jobs, highlighting the best matching experiences.",
+      "next_facts_to_add": [
+        "Deployment target.",
+        "User-facing workflows.",
+        "Screenshots or demo link.",
+        "Measurable impact."
+      ]
+    }
+  ],
+  "template": {
+    "project_name": "Project Name",
+    "fields": [
+      "Status",
+      "Summary",
+      "Role",
+      "Technologies",
+      "Problem solved",
+      "Key features",
+      "Impact",
+      "Link"
+    ]
+  }
+}

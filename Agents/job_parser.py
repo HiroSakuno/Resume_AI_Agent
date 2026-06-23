@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from pathlib import Path
-import re
 import json
+import re
+from pathlib import Path
 
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
@@ -30,15 +30,16 @@ def find_latest_text_file(directory: Path) -> Path:
     return max(candidates, key=lambda item: item[0])[1]
 
 
-def main() -> None:
-    latest_file = find_latest_text_file(JOB_DESCRIPTION_DIR)
-    job_description = latest_file.read_text(encoding="utf-8")
-
+def build_job_parser_client() -> AIProjectClient:
     project_client = AIProjectClient(
         endpoint=ENDPOINT,
         credential=DefaultAzureCredential(),
     )
+    return project_client
 
+
+def parse_job_description(job_description: str) -> dict:
+    project_client = build_job_parser_client()
     openai_client = project_client.get_openai_client()
     response = openai_client.responses.create(
         model=MODEL,
@@ -106,16 +107,22 @@ def main() -> None:
             },
         },
     )
+    return json.loads(response.output_text)
 
+
+def parse_latest_job_description() -> tuple[Path, dict]:
+    latest_file = find_latest_text_file(JOB_DESCRIPTION_DIR)
+    job_description = latest_file.read_text(encoding="utf-8")
+    parsed_output = parse_job_description(job_description)
+    return latest_file, parsed_output
+
+
+def write_parsed_job_description(source_file: Path, parsed_output: dict) -> Path:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    output_path = OUTPUT_DIR / f"{latest_file.stem}.json"
-    parsed_output = json.loads(response.output_text)
+    output_path = OUTPUT_DIR / f"{source_file.stem}.json"
     output_path.write_text(json.dumps(parsed_output, indent=2), encoding="utf-8")
-
-    print(f"Selected file: {latest_file.name}")
-    print(f"Saved JSON to: {output_path}")
-    print(json.dumps(parsed_output, indent=2))
+    return output_path
 
 
-if __name__ == "__main__":
-    main()
+def load_parsed_job_description(path: Path) -> dict:
+    return json.loads(path.read_text(encoding="utf-8"))

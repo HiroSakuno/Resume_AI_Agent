@@ -1,0 +1,23 @@
+{
+  "core_identity": {
+    "name": "Hiro Sakuno",
+    "professional_headline": "Pick from the Job Description",
+    "location": "Blumenau, Santa Catarina BR"
+  },
+  "short_bio": {
+    "power_bi_related_positions": [
+      "I'm a Microsoft-certified Senior BI Engineer and Data Analyst (PL-300) with over 4 years of experience. I have worked with international companies to build reporting solutions from scratch, delivering Power BI dashboards used by thousands of users."
+    ],
+    "ai_related_positions": [
+      "I'm a Microsoft-certified Senior BI Engineer and Data Analyst (PL-300) with over 4 years of experience building data, analytics, and automation solutions for international companies. I combine strong BI expertise with SQL, Python, cloud databases, and AI-enabled workflows to design scalable solutions that turn business requirements into reliable data products and intelligent automation."
+    ]
+  },
+  "resume_voice": {
+    "tone": "clear, direct, technically credible, and human.",
+    "avoid": [
+      "inflated claims",
+      "invented metrics",
+      "skills not supported by experience"
+    ]
+  }
+}
