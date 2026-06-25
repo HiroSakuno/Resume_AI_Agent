@@ -10,7 +10,7 @@ from azure.identity import DefaultAzureCredential
 
 ENDPOINT = "https://resume-ai-agent-resource.services.ai.azure.com/api/projects/Resume_AI_Agent"
 JOB_DESCRIPTION_DIR = Path("job-description")
-OUTPUT_DIR = Path("outputs") / "job-parse"
+OUTPUT_DIR = Path("outputs") / "step1"
 MODEL = "gpt-4.1-mini"
 
 

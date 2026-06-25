@@ -10,6 +10,7 @@ from azure.identity import DefaultAzureCredential
 
 
 EXPERIENCE_PATH = Path("Data") / "experience.json"
+OUTPUT_DIR = Path("outputs") / "step2"
 ENDPOINT = "https://resume-ai-agent-resource.services.ai.azure.com/api/projects/Resume_AI_Agent"
 MODEL = "gpt-4.1-mini"
 
@@ -160,50 +161,55 @@ def match_experience_facts(
                 "type": "json_schema",
                 "name": "experience_matcher_output",
                 "schema": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "id": {"type": "string"},
-                            "company": {"type": "string"},
-                            "role": {"type": "string"},
-                            "selected_facts": {
-                                "type": "array",
-                                "items": {"type": "string"},
-                            },
-                            "skills": {
-                                "type": "array",
-                                "items": {"type": "string"},
+                    "type": "object",
+                    "properties": {
+                        "matched_experiences": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {"type": "string"},
+                                    "company": {"type": "string"},
+                                    "role": {"type": "string"},
+                                    "selected_facts": {
+                                        "type": "array",
+                                        "items": {"type": "string"},
+                                    },
+                                    "skills": {
+                                        "type": "array",
+                                        "items": {"type": "string"},
+                                    },
+                                },
+                                "required": [
+                                    "id",
+                                    "company",
+                                    "role",
+                                    "selected_facts",
+                                    "skills",
+                                ],
+                                "additionalProperties": False,
                             },
                         },
-                        "required": [
-                            "id",
-                            "company",
-                            "role",
-                            "selected_facts",
-                            "skills",
-                        ],
-                        "additionalProperties": False,
                     },
+                    "required": ["matched_experiences"],
+                    "additionalProperties": False,
                 },
             },
         },
     )
-    return json.loads(response.output_text)
+    return json.loads(response.output_text)["matched_experiences"]
 
 
-def run_experience_matcher(job_parser_output: dict) -> list[dict]:
+def write_experience_matcher_output(source_file: Path, matched_experiences: list[dict]) -> Path:
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    output_path = OUTPUT_DIR / f"{source_file.stem}.json"
+    output_path.write_text(json.dumps(matched_experiences, indent=2), encoding="utf-8")
+    return output_path
+
+
+def run_experience_matcher(source_file: Path, job_parser_output: dict) -> tuple[Path, list[dict]]:
     experiences = json.loads(EXPERIENCE_PATH.read_text(encoding="utf-8"))
     ranked_experiences = rank_experience_facts(experiences, job_parser_output)
-    next_agent_payload = match_experience_facts(ranked_experiences, job_parser_output)
-
-    for experience in ranked_experiences:
-        print()
-        print(f"{experience['company']} | {experience['role']} | total score: {experience['total_score']}")
-        for fact in experience["facts"]:
-            print(f"- [{fact['score']}] {fact['fact']}")
-
-    print()
-    print("Payload for next agent:")
-    print(json.dumps(next_agent_payload, indent=2))
-    return next_agent_payload
+    matched_experiences = match_experience_facts(ranked_experiences, job_parser_output)
+    output_path = write_experience_matcher_output(source_file, matched_experiences)
+    return output_path, matched_experiences
