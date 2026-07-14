@@ -8,11 +8,13 @@ from pathlib import Path
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
 
+from Agents.project_config import (
+    get_experience_matcher_agent_name,
+    get_experience_matcher_endpoint,
+)
 
 EXPERIENCE_PATH = Path("Data") / "experience.json"
 OUTPUT_DIR = Path("outputs") / "step2"
-ENDPOINT = "https://resume-ai-agent-resource.services.ai.azure.com/api/projects/Resume_AI_Agent"
-MODEL = "gpt-4.1-mini"
 
 
 def normalize_text(value: str) -> str:
@@ -82,7 +84,6 @@ def rank_experience_facts(experiences: list[dict], job_description: dict) -> lis
                 "company": experience["company"],
                 "role": experience["role"],
                 "facts": top_facts,
-                "skills": experience.get("skills", []),
                 "total_score": sum(item["score"] for item in top_facts),
             }
         )
@@ -104,7 +105,6 @@ def build_next_agent_payload(ranked_experiences: list[dict]) -> list[dict]:
                 }
                 for item in experience["facts"]
             ],
-            "skills": experience["skills"],
         }
         for experience in ranked_experiences
     ]
@@ -112,8 +112,9 @@ def build_next_agent_payload(ranked_experiences: list[dict]) -> list[dict]:
 
 def build_experience_matcher_client() -> AIProjectClient:
     return AIProjectClient(
-        endpoint=ENDPOINT,
+        endpoint=get_experience_matcher_endpoint(),
         credential=DefaultAzureCredential(),
+        allow_preview=True,
     )
 
 
@@ -123,79 +124,14 @@ def match_experience_facts(
 ) -> list[dict]:
     next_agent_input = build_next_agent_payload(ranked_experiences)
     project_client = build_experience_matcher_client()
-    openai_client = project_client.get_openai_client()
+    openai_client = project_client.get_openai_client(agent_name=get_experience_matcher_agent_name())
     response = openai_client.responses.create(
-        model=MODEL,
-        input=[
+        input=json.dumps(
             {
-                "type": "message",
-                "role": "system",
-                "content": [
-                    {
-                        "type": "input_text",
-                        "text": (
-                            "You rank resume experience facts for a job description. "
-                            "Return only the provided JSON schema."
-                        ),
-                    }
-                ],
-            },
-            {
-                "type": "message",
-                "role": "user",
-                "content": [
-                    {
-                        "type": "input_text",
-                        "text": json.dumps(
-                            {
-                                "job_parser_output": job_parser_output,
-                                "ranked_experiences": next_agent_input,
-                            }
-                        ),
-                    }
-                ],
-            },
-        ],
-        text={
-            "format": {
-                "type": "json_schema",
-                "name": "experience_matcher_output",
-                "schema": {
-                    "type": "object",
-                    "properties": {
-                        "matched_experiences": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "id": {"type": "string"},
-                                    "company": {"type": "string"},
-                                    "role": {"type": "string"},
-                                    "selected_facts": {
-                                        "type": "array",
-                                        "items": {"type": "string"},
-                                    },
-                                    "skills": {
-                                        "type": "array",
-                                        "items": {"type": "string"},
-                                    },
-                                },
-                                "required": [
-                                    "id",
-                                    "company",
-                                    "role",
-                                    "selected_facts",
-                                    "skills",
-                                ],
-                                "additionalProperties": False,
-                            },
-                        },
-                    },
-                    "required": ["matched_experiences"],
-                    "additionalProperties": False,
-                },
-            },
-        },
+                "job_parser_output": job_parser_output,
+                "ranked_experiences": next_agent_input,
+            }
+        ),
     )
     return json.loads(response.output_text)["matched_experiences"]
 

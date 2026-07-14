@@ -57,6 +57,15 @@ def latex_escape(value: str) -> str:
     return "".join(escaped_parts)
 
 
+def format_secondary_text(value: str) -> str:
+    escaped_value = latex_escape(value)
+    return escaped_value.replace("|", r"\textbar{}")
+
+
+def format_contact_link(url: str, label: str) -> str:
+    return f"\\resumeContactLink{{{url}}}{{{latex_escape(label)}}}"
+
+
 def format_bullet_items(items: list[str]) -> str:
     if not items:
         return ""
@@ -81,24 +90,27 @@ def format_contact_line(profile: dict) -> str:
     contact_items: list[str] = []
     phone = contact.get("phone", "").strip()
     if phone:
-        contact_items.append(latex_escape(phone))
+        phone_target = re.sub(r"[^\d+]", "", phone)
+        if phone_target:
+            contact_items.append(format_contact_link(f"tel:{phone_target}", phone))
+        else:
+            contact_items.append(latex_escape(phone))
 
     email = contact.get("email", "").strip()
     if email:
-        escaped_email = latex_escape(email)
-        contact_items.append("\\href{mailto:" + email + "}{\\underline{" + escaped_email + "}}")
+        contact_items.append(format_contact_link(f"mailto:{email}", email))
 
     linkedin_url = contact.get("linkedin_url", "").strip()
     linkedin_label = contact.get("linkedin_label", "").strip()
     if linkedin_url:
         visible_linkedin = linkedin_label or linkedin_url.removeprefix("https://").removeprefix("http://")
-        contact_items.append(f"\\href{{{linkedin_url}}}{{\\underline{{{latex_escape(visible_linkedin)}}}}}")
+        contact_items.append(format_contact_link(linkedin_url, visible_linkedin))
 
     portfolio_url = contact.get("portfolio_url", "").strip()
     portfolio_label = contact.get("portfolio_label", "").strip()
     if portfolio_url:
         visible_portfolio = portfolio_label or portfolio_url.removeprefix("https://").removeprefix("http://")
-        contact_items.append(f"\\href{{{portfolio_url}}}{{\\underline{{{latex_escape(visible_portfolio)}}}}}")
+        contact_items.append(format_contact_link(portfolio_url, visible_portfolio))
 
     if contact_items:
         return " ~|~ ".join(contact_items)
@@ -135,7 +147,7 @@ def format_experience_entries(
                 [
                     "\\resumeSubheading",
                     f"  {{{latex_escape(source_experience['company'])}}}{{{latex_escape(source_experience.get('period', ''))}}}",
-                    f"  {{{latex_escape(source_experience['role'])}}}{{}}",
+                    f"  {{{format_secondary_text(source_experience['role'])}}}{{}}",
                     format_bullet_items(selected_facts),
                 ]
             )
@@ -172,7 +184,7 @@ def format_projects_entries(projects_payload: dict, max_heading_technologies: in
         heading_technologies = project.get("resume_heading_technologies") or project.get("technologies", [])[
             :max_heading_technologies
         ]
-        derived_subtitle = latex_escape(", ".join(heading_technologies))
+        derived_subtitle = ", ".join(heading_technologies)
 
         project_links: list[str] = []
         github_url = project.get("github_url", "").strip()
@@ -192,10 +204,10 @@ def format_projects_entries(projects_payload: dict, max_heading_technologies: in
 
         project_title = latex_escape(project.get("resume_title", project["name"]))
         project_date = latex_escape(project.get("resume_date", project.get("date", "")).strip())
-        project_subtitle = latex_escape(project.get("resume_subtitle", "").strip()) or derived_subtitle
+        project_subtitle = project.get("resume_subtitle", "").strip() or derived_subtitle
         project_meta = project.get("resume_meta", "").strip()
         if project_meta:
-            project_meta_text = latex_escape(project_meta)
+            project_meta_text = format_secondary_text(project_meta)
         else:
             project_meta_text = " ~|~ ".join(project_links)
 
@@ -204,7 +216,7 @@ def format_projects_entries(projects_payload: dict, max_heading_technologies: in
                 [
                     "\\resumeSubheading",
                     f"  {{{project_title}}}{{{project_date}}}",
-                    f"  {{{project_subtitle}}}{{{project_meta_text}}}",
+                    f"  {{{format_secondary_text(project_subtitle)}}}{{{project_meta_text}}}",
                     format_bullet_items(bullet_items),
                 ]
             )
@@ -278,7 +290,7 @@ def format_education_entries(education_payload: dict) -> str:
                 [
                     "\\resumeSubheading",
                     f"  {{{latex_escape(education['institution'])}}}{{{latex_escape(str(education.get('graduation_year', '')))}}}",
-                    f"  {{{latex_escape(education['degree'])}}}{{{latex_escape(education.get('location', ''))}}}",
+                    f"  {{{format_secondary_text(education['degree'])}}}{{{format_secondary_text(education.get('location', ''))}}}",
                 ]
             )
         )
@@ -314,7 +326,7 @@ def format_certifications_entries(education_payload: dict) -> str:
                 [
                     "\\resumeSubheading",
                     f"  {{{latex_escape(certification['name'])}}}{{{latex_escape(str(certification.get('year', '')))}}}",
-                    f"  {{{latex_escape(subtitle)}}}{{}}",
+                    f"  {{{format_secondary_text(subtitle)}}}{{}}",
                 ]
             )
         )

@@ -17,6 +17,7 @@
 \usepackage[english]{babel}
 \usepackage{tabularx}
 \usepackage{multicol}
+\usepackage[scaled=0.95]{helvet}
 \setlength{\multicolsep}{-3.0pt}
 \setlength{\columnsep}{-1pt}
 \input{glyphtounicode}
@@ -40,10 +41,14 @@
 \raggedright
 \setlength{\tabcolsep}{0in}
 
+\definecolor{sectiontitlecolor}{RGB}{51,51,51}
+\definecolor{secondarytextcolor}{RGB}{102,102,102}
+\definecolor{contactlinkcolor}{RGB}{26,115,232}
+
 % Sections formatting
 \titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large\bfseries
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+  \color{sectiontitlecolor}\vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{sectiontitlecolor}\titlerule \vspace{-5pt}]
 
 \pdfgentounicode=1
 
@@ -61,18 +66,26 @@
   }
 }
 
+\newcommand{\resumeSecondaryText}[1]{
+  {\color{secondarytextcolor}\fontfamily{phv}\selectfont\itshape\small #1}
+}
+
+\newcommand{\resumeContactLink}[2]{
+  \href{#1}{\textcolor{contactlinkcolor}{\underline{#2}}}
+}
+
 \newcommand{\resumeSubheading}[4]{
   \vspace{-2pt}\item
     \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & \textbf{\small #2} \\
-      \textit{\small#3} & \textit{\small #4} \\
+      \resumeSecondaryText{#3} & \resumeSecondaryText{#4} \\
     \end{tabular*}\vspace{-7pt}
 }
 
 \newcommand{\resumeSubSubheading}[2]{
     \item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small#1} & \textit{\small #2} \\
+      \resumeSecondaryText{#1} & \resumeSecondaryText{#2} \\
     \end{tabular*}\vspace{-7pt}
 }
 
