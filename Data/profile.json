@@ -4,6 +4,15 @@
     "professional_headline": "Pick from the Job Description",
     "location": "Blumenau, Santa Catarina BR"
   },
+  "contact": {
+    "phone": "+55 47 99741-4451",
+    "email": "hirosakuno@gmail.com",
+    "linkedin_url": "https://www.linkedin.com/in/hiro-sakuno/",
+    "linkedin_label": "LinkedIn",
+    "portfolio_url": "https://portfolio.mindthedata.com.br",
+    "portfolio_label": "Portfolio",
+    "contact_line_latex": ""
+  },
   "short_bio": {
     "power_bi_related_positions": [
       "I'm a Microsoft-certified Senior BI Engineer and Data Analyst (PL-300) with over 4 years of experience. I have worked with international companies to build reporting solutions from scratch, delivering Power BI dashboards used by thousands of users."
@@ -19,5 +28,11 @@
       "invented metrics",
       "skills not supported by experience"
     ]
+  },
+  "render_options": {
+    "max_experience_bullets": 3,
+    "max_project_heading_technologies": 4,
+    "include_certifications_section": false,
+    "include_languages_section": false
   }
 }

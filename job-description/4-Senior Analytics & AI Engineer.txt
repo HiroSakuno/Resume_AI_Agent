@@ -1,0 +1,40 @@
+Position overview
+
+We are seeking a Senior Analytics & AI Engineer to help optimize and evolve enterprise analytics solutions built on Power BI, SQL Server, and modern data platforms while enabling AI-driven analytics experiences using Azure AI technologies.
+
+The role combines strong expertise in semantic models, data engineering, reporting performance, and analytics architecture with practical experience building AI-powered solutions such as copilots, AI agents, Text-to-SQL, and conversational analytics.
+
+The ideal candidate is equally comfortable optimizing Power BI semantic models, designing scalable analytical datasets, and integrating AI capabilities on top of enterprise analytics platforms.
+Responsibilities
+
+Design and optimize Power BI semantic models for large-scale analytical workloads.
+Improve report performance through DirectQuery optimization, aggregations, caching strategies, and semantic model tuning.
+Develop and maintain dimensional models, analytical datasets, and data integration pipelines.
+Support AI-driven analytics initiatives by exposing business metadata, semantic definitions, and governed datasets.
+Design and implement AI-powered analytics solutions using Azure OpenAI and Azure AI Foundry.
+Build Text-to-SQL and Text-to-DAX capabilities over enterprise analytics platforms.
+Develop grounding, metadata enrichment, and retrieval strategies for AI Agents.
+Implement observability, evaluation, and guardrail mechanisms for AI solutions.
+Collaborate with architects and business stakeholders to define future-state analytics and AI architectures.
+Requirements
+
+5+ years of experience in BI, Analytics Engineering, Data Engineering, or Analytics Solutions.
+Advanced Power BI and semantic model design experience.
+Strong SQL Server and T-SQL skills.
+Strong dimensional modeling and data warehousing knowledge.
+Experience optimizing DirectQuery, Import, and hybrid reporting architectures.
+Strong DAX and Power Query skills.
+Experience with ETL/ELT, data integration, and analytical platform design.
+Python development experience.
+Experience working with LLMs, Azure OpenAI, or AI-assisted analytics solutions.
+Understanding of RAG, grounding, prompt engineering, and AI evaluation concepts.
+Nice to have
+
+Microsoft Fabric (Lakehouse, Warehouse, Semantic Models, Dataflows).
+Azure AI Foundry.
+Text-to-SQL or Text-to-DAX implementations.
+Copilot Studio or Fabric Data Agents.
+Semantic Kernel, LangGraph, AutoGen, or similar frameworks.
+Tabular Editor and SSAS Tabular.
+Enterprise metadata, governance, and lineage solutions.
+Experience supporting conversational analytics or AI Agents over BI platforms.

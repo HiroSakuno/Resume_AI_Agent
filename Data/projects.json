@@ -1,8 +1,42 @@
 {
   "projects": [
     {
+      "name": "Natural Language to SQL Chatbot",
+      "resume_title": "Natural Language to SQL Chatbot",
+      "resume_subtitle": "NL-to-SQL, Supabase, PostgreSQL, Pinecone",
+      "resume_date": "",
+      "resume_meta": "",
+      "summary": "Built an NL-to-SQL chatbot that translates natural language questions into SQL, executes queries against Supabase PostgreSQL, and returns structured responses to the host website through webhook-based integration.",
+      "resume_bullets": [
+        "Developed an NL-to-SQL chatbot integrated with website webhooks that converts natural language into SQL, executes queries in Supabase PostgreSQL, and combines relational results with embedded Pinecone vector retrieval to deliver grounded responses."
+      ],
+      "technologies": [
+        "NL-to-SQL",
+        "Vector Database",
+        "Website Integration",
+        "Supabase",
+        "PostgreSQL",
+        "Webhooks",
+        "Pinecone"
+      ],
+      "resume_heading_technologies": [
+        "NL-to-SQL",
+        "Supabase",
+        "Website Integration",
+        "Vector Database"
+      ],
+      "purpose": "Combined relational query execution with embedded Pinecone vector search to support grounded responses, strengthen semantic context retrieval, and improve the end-to-end self-service experience across web and data layers."
+    },
+    {
       "name": "Resume AI Agent",
+      "resume_title": "Resume AI Agent",
+      "resume_subtitle": "Python, Agent Framework, file-based skills, Azure AI Foundry",
+      "resume_date": "",
+      "resume_meta": "",
       "summary": "Microsoft Foundry hosted agent built with Agent Framework.",
+      "resume_bullets": [
+        "Built a Microsoft Foundry hosted agent that matches documented experience to target job descriptions and generates ATS-oriented resume output."
+      ],
       "technologies": [
         "Python",
         "Agent Framework",
