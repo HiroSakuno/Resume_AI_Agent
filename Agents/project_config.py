@@ -7,8 +7,12 @@ from pathlib import Path
 AZURE_AI_PROJECT_ENDPOINT_ENV_VAR = "AZURE_AI_PROJECT_ENDPOINT"
 AZURE_AI_JOB_PARSER_ENDPOINT_ENV_VAR = "AZURE_AI_JOB_PARSER_ENDPOINT"
 AZURE_AI_EXPERIENCE_MATCHER_ENDPOINT_ENV_VAR = "AZURE_AI_EXPERIENCE_MATCHER_ENDPOINT"
+AZURE_AI_PROJECT_MATCHER_ENDPOINT_ENV_VAR = "AZURE_AI_PROJECT_MATCHER_ENDPOINT"
 AZURE_AI_JOB_PARSER_AGENT_NAME_ENV_VAR = "AZURE_AI_JOB_PARSER_AGENT_NAME"
 AZURE_AI_EXPERIENCE_MATCHER_AGENT_NAME_ENV_VAR = "AZURE_AI_EXPERIENCE_MATCHER_AGENT_NAME"
+AZURE_AI_PROJECT_MATCHER_AGENT_NAME_ENV_VAR = "AZURE_AI_PROJECT_MATCHER_AGENT_NAME"
+DEFAULT_PROJECT_MATCHER_ENDPOINT = "https://resume-ai-agent-resource.services.ai.azure.com/api/projects/Resume_AI_Agent"
+DEFAULT_PROJECT_MATCHER_AGENT_NAME = "Project-Matcher"
 ROOT_DIR = Path(__file__).resolve().parent.parent
 DOTENV_PATH = ROOT_DIR / ".env"
 
@@ -105,3 +109,17 @@ def get_experience_matcher_agent_name() -> str:
         AZURE_AI_EXPERIENCE_MATCHER_AGENT_NAME_ENV_VAR,
         config_label="Experience-Matcher agent name",
     )
+
+
+def get_project_matcher_endpoint() -> str:
+    endpoint = load_config_value(AZURE_AI_PROJECT_MATCHER_ENDPOINT_ENV_VAR)
+    if endpoint:
+        return endpoint
+    return DEFAULT_PROJECT_MATCHER_ENDPOINT
+
+
+def get_project_matcher_agent_name() -> str:
+    agent_name = load_config_value(AZURE_AI_PROJECT_MATCHER_AGENT_NAME_ENV_VAR)
+    if agent_name:
+        return agent_name
+    return DEFAULT_PROJECT_MATCHER_AGENT_NAME

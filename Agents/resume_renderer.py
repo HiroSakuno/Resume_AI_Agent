@@ -14,7 +14,8 @@ EDUCATION_PATH = Path("Data") / "education.json"
 LANGUAGES_PATH = Path("Data") / "languages.json"
 STEP1_DIR = Path("outputs") / "step1"
 STEP2_DIR = Path("outputs") / "step2"
-OUTPUT_DIR = Path("outputs") / "step3"
+STEP3_DIR = Path("outputs") / "step3"
+OUTPUT_DIR = Path("outputs") / "output"
 TEMPLATE_PATH = Path("main.tex")
 JOB_DESCRIPTION_DIR = Path("job-description")
 
@@ -177,39 +178,16 @@ def format_experience_section(
     )
 
 
-def format_projects_entries(projects_payload: dict, max_heading_technologies: int) -> str:
-    project_items = projects_payload.get("projects", [])
+def format_selected_projects_entries(selected_projects: list[dict]) -> str:
     blocks: list[str] = []
-    for project in project_items:
-        heading_technologies = project.get("resume_heading_technologies") or project.get("technologies", [])[
-            :max_heading_technologies
-        ]
-        derived_subtitle = ", ".join(heading_technologies)
-
-        project_links: list[str] = []
-        github_url = project.get("github_url", "").strip()
-        if github_url:
-            project_links.append(f"\\href{{{github_url}}}{{\\underline{{GitHub}}}}")
-
-        demo_url = project.get("demo_url", "").strip()
-        if demo_url:
-            project_links.append(f"\\href{{{demo_url}}}{{\\underline{{Demo}}}}")
-
-        resume_bullets = project.get("resume_bullets", [])
-        if resume_bullets:
-            bullet_items = [bullet for bullet in resume_bullets if bullet]
-        else:
-            bullets = [project.get("summary", ""), project.get("purpose", "")]
-            bullet_items = [bullet for bullet in bullets if bullet]
-
-        project_title = latex_escape(project.get("resume_title", project["name"]))
-        project_date = latex_escape(project.get("resume_date", project.get("date", "")).strip())
-        project_subtitle = project.get("resume_subtitle", "").strip() or derived_subtitle
-        project_meta = project.get("resume_meta", "").strip()
-        if project_meta:
-            project_meta_text = format_secondary_text(project_meta)
-        else:
-            project_meta_text = " ~|~ ".join(project_links)
+    for project in selected_projects:
+        heading_technologies = project.get("selected_technologies", [])
+        project_title = latex_escape(project.get("selected_name", "").strip())
+        project_date = latex_escape(str(project.get("date", "")).strip())
+        project_subtitle = ", ".join(heading_technologies[:])
+        bullet_items = [project.get("selected_bullet", "").strip()]
+        bullet_items = [bullet for bullet in bullet_items if bullet]
+        project_meta_text = ""
 
         blocks.append(
             "\n".join(
@@ -225,8 +203,8 @@ def format_projects_entries(projects_payload: dict, max_heading_technologies: in
     return "\n\n".join(block for block in blocks if block)
 
 
-def format_projects_section(projects_payload: dict, max_heading_technologies: int) -> str:
-    entries = format_projects_entries(projects_payload, max_heading_technologies=max_heading_technologies)
+def format_projects_section(selected_projects: list[dict]) -> str:
+    entries = format_selected_projects_entries(selected_projects)
     if not entries:
         return ""
 
@@ -240,6 +218,12 @@ def format_projects_section(projects_payload: dict, max_heading_technologies: in
             "\\vspace{-16pt}",
         ]
     )
+
+
+def load_selected_projects(source_file: Path) -> list[dict]:
+    matched_projects_path = STEP3_DIR / f"{source_file.stem}.json"
+    matched_projects_payload = load_json(matched_projects_path)
+    return matched_projects_payload.get("selected_projects", [])
 
 
 def format_certifications_and_languages_lines(education_payload: dict, languages_payload: dict) -> str:
@@ -434,16 +418,29 @@ def try_build_pdf(tex_path: Path) -> Path | None:
     return build_pdf(tex_path)
 
 
-def render_resume(source_file: Path, job_parser_output: dict) -> tuple[Path, Path | None]:
+def remove_latex_artifacts(tex_path: Path) -> None:
+    artifact_paths = [
+        tex_path,
+        tex_path.with_suffix(".aux"),
+        tex_path.with_suffix(".log"),
+        tex_path.with_suffix(".out"),
+        tex_path.with_suffix(".fls"),
+        tex_path.with_suffix(".fdb_latexmk"),
+        tex_path.with_suffix(".synctex.gz"),
+    ]
+    for artifact_path in artifact_paths:
+        artifact_path.unlink(missing_ok=True)
+
+
+def render_resume(source_file: Path, job_parser_output: dict) -> tuple[Path | None, Path | None]:
     profile = load_json(PROFILE_PATH)
     all_experiences = load_json(EXPERIENCE_PATH)
-    projects_payload = load_json(PROJECTS_PATH)
     education_payload = load_json(EDUCATION_PATH)
     languages_payload = load_json(LANGUAGES_PATH)
     matched_experiences = load_json(STEP2_DIR / f"{source_file.stem}.json")
+    selected_projects = load_selected_projects(source_file)
     render_options = get_render_options(profile)
     max_experience_bullets = render_options.get("max_experience_bullets", 3)
-    max_project_heading_technologies = render_options.get("max_project_heading_technologies", 4)
     include_certifications_section = render_options.get("include_certifications_section", False)
     include_languages_section = render_options.get("include_languages_section", False)
 
@@ -457,10 +454,7 @@ def render_resume(source_file: Path, job_parser_output: dict) -> tuple[Path, Pat
             all_experiences,
             max_bullets=max_experience_bullets,
         ),
-        "PLACEHOLDERPROJECTSSECTION": format_projects_section(
-            projects_payload,
-            max_heading_technologies=max_project_heading_technologies,
-        ),
+        "PLACEHOLDERPROJECTSSECTION": format_projects_section(selected_projects),
         "PLACEHOLDERSKILLSSECTION": format_certifications_and_languages_section(
             education_payload,
             languages_payload,
@@ -475,10 +469,13 @@ def render_resume(source_file: Path, job_parser_output: dict) -> tuple[Path, Pat
     tex_path.write_text(rendered_resume, encoding="utf-8")
 
     pdf_path = try_build_pdf(tex_path)
+    if pdf_path is not None:
+        remove_latex_artifacts(tex_path)
+        return None, pdf_path
     return tex_path, pdf_path
 
 
-def render_latest_resume() -> tuple[Path, Path | None]:
+def render_latest_resume() -> tuple[Path | None, Path | None]:
     source_file = find_latest_text_file(JOB_DESCRIPTION_DIR)
     job_parser_output = load_json(STEP1_DIR / f"{source_file.stem}.json")
     return render_resume(source_file, job_parser_output)

@@ -1,72 +1,70 @@
 {
   "projects": [
     {
-      "name": "Natural Language to SQL Chatbot",
-      "resume_title": "Natural Language to SQL Chatbot",
-      "resume_subtitle": "NL-to-SQL, Supabase, PostgreSQL, Pinecone",
-      "resume_date": "",
-      "resume_meta": "",
+      "id": 1,
+      "names": [
+        "Natural Language to SQL Chatbot",
+        "Text-to-SQL Chatbot",
+        "Conversational SQL Assistant",
+        "AI Data Query Chatbot",
+        "Natural Language Query Assistant"
+      ],
+      "date": "2025",
       "summary": "Built an NL-to-SQL chatbot that translates natural language questions into SQL, executes queries against Supabase PostgreSQL, and returns structured responses to the host website through webhook-based integration.",
       "resume_bullets": [
-        "Developed an NL-to-SQL chatbot integrated with website webhooks that converts natural language into SQL, executes queries in Supabase PostgreSQL, and combines relational results with embedded Pinecone vector retrieval to deliver grounded responses."
-      ],
-      "technologies": [
-        "NL-to-SQL",
-        "Vector Database",
-        "Website Integration",
-        "Supabase",
-        "PostgreSQL",
-        "Webhooks",
-        "Pinecone"
+        "Developed an NL-to-SQL chatbot that translates natural language questions into SQL, executes queries in Supabase PostgreSQL, and returns structured responses through website webhook integration.",
+        "Built a conversational data access workflow that combines relational SQL execution with Pinecone vector retrieval to improve grounding and semantic context for end users.",
+        "Integrated the chatbot with a host website to support self-service analytics experiences through natural language interaction and backend webhook orchestration.",
+        "Designed a retrieval pattern that connects embedded vector search with structured database queries, enabling more accurate responses across relational and semantic data layers.",
+        "Implemented a Supabase-backed question answering flow that turns business questions into executable SQL and returns database-driven results in a user-friendly format.",
+        "Created an AI-powered data interface that blends NL-to-SQL, PostgreSQL querying, and vector database search to strengthen end-to-end analytics usability."
       ],
       "resume_heading_technologies": [
         "NL-to-SQL",
         "Supabase",
         "Website Integration",
-        "Vector Database"
-      ],
-      "purpose": "Combined relational query execution with embedded Pinecone vector search to support grounded responses, strengthen semantic context retrieval, and improve the end-to-end self-service experience across web and data layers."
+        "Vector Database",
+        "PostgreSQL",
+        "Webhooks",
+        "Pinecone",
+        "Conversational Analytics",
+        "Semantic Retrieval",
+        "AI Chatbot"
+      ]
     },
     {
-      "name": "Resume AI Agent",
-      "resume_title": "Resume AI Agent",
-      "resume_subtitle": "Python, Agent Framework, file-based skills, Azure AI Foundry",
-      "resume_date": "",
-      "resume_meta": "",
+      "id": 2,
+      "names": [
+        "Resume AI Agent",
+        "AI Resume Tailoring Agent",
+        "ATS Resume Optimization Agent",
+        "Job Description Matching Agent",
+        "Foundry Resume Assistant"
+      ],
+      "date": "2026",
       "summary": "Microsoft Foundry hosted agent built with Agent Framework.",
       "resume_bullets": [
-        "Built a Microsoft Foundry hosted agent that matches documented experience to target job descriptions and generates ATS-oriented resume output."
+        "Built a Microsoft Foundry hosted agent that matches documented experience to target job descriptions and generates ATS-oriented resume output.",
+        "Developed an AI agent workflow that aligns real project and experience data to job requirements while preserving truthful, interview-defensible resume content.",
+        "Implemented a resume generation solution in Azure AI Foundry using Agent Framework patterns to automate experience selection and keyword-aligned resume drafting.",
+        "Applied Azure OpenAI models to compare candidate experience against target roles and surface the strongest matches for resume summaries, project bullets, and skills emphasis.",
+        "Structured the project around file-based skills and reusable prompting components to support repeatable resume tailoring across different job descriptions.",
+        "Built a practical LLM application in Python that connects job-description analysis, candidate profile retrieval, and ATS-focused resume generation into a single workflow."
       ],
-      "technologies": [
+      "resume_heading_technologies": [
         "Python",
         "Agent Framework",
-        "file-based skills",
         "Azure AI Foundry",
-        "Azure OpenAI (GPT-4.1/4o)",
+        "Azure OpenAI",
+        "AI Agents",
+        "LLM Applications",
+        "Prompt Engineering",
         "Prompt Flow",
         "Semantic Kernel",
-        "GitHub"
-      ],
-      "purpose": "Generate the best Resume based on my real experiences from previous jobs, highlighting the best matching experiences.",
-      "next_facts_to_add": [
-        "Deployment target.",
-        "User-facing workflows.",
-        "Screenshots or demo link.",
-        "Measurable impact."
+        "GitHub",
+        "ATS Optimization",
+        "Job Description Matching"
       ]
     }
-  ],
-  "template": {
-    "project_name": "Project Name",
-    "fields": [
-      "Status",
-      "Summary",
-      "Role",
-      "Technologies",
-      "Problem solved",
-      "Key features",
-      "Impact",
-      "Link"
-    ]
-  }
+  ]
 }

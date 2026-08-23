@@ -10,7 +10,9 @@
       "Used OpenAI Codex and TMDL files to analyze Power BI report metadata, tables, relationships, dependencies, and business logic, supporting faster report mapping and migration from SAP ECC to SAP S/4HANA.",
       "Applied LLM-assisted analysis to accelerate metadata review, dependency mapping, and technical investigation across complex BI assets.",
       "Worked with business and technical stakeholders across Canada and US teams to understand reporting requirements, validate data logic, identify dependencies, and document migration-related findings.",
-      "Implemented dynamic Row-Level Security (RLS) using user-based access controls and security mapping tables, enabling secure self-service analytics across enterprise reporting environments."
+      "Implemented dynamic Row-Level Security (RLS) using user-based access controls and security mapping tables, enabling secure self-service analytics across enterprise reporting environments.",
+      "Built data ingestion and transformation pipelines following Medallion Architecture using Databricks.",
+      "Built Spark/PySpark notebooks and orchestrated ETL workflows with Apache Airflow, automating data ingestion, transformation, and validation for enterprise-scale reporting solutions."
     ]
   },
   {

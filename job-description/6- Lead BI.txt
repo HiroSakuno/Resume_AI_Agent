@@ -1,0 +1,43 @@
+Lead (Hands-On) – Azure / Microsoft Fabric / Power BI
+
+We are seeking a hands-on BI Lead to join a growing data program and play a critical role in modernizing the organization’s data and analytics platform. This is a player-coach role where you will lead by example—owning both technical delivery and stakeholder engagement—while helping build a small, high-performing team.
+
+Key Responsibilities
+Lead the design, development, and optimization of data pipelines and analytics solutions
+
+Drive migration from Azure-based architecture to Microsoft Fabric
+
+Work within a Medallion architecture (Bronze/Silver/Gold) to structure and scale data
+
+Build and deliver impactful Power BI dashboards and reports for business stakeholders
+
+Partner directly with leadership (including CFO) to gather requirements and translate them into solutions
+
+Perform initial data platform assessment/audit and recommend improvements
+
+Mentor and onboard additional team members (train-the-trainer model)
+
+Required Qualifications
+Strong hands-on experience with Azure Data stack (Azure SQL, ADF, pipelines)
+
+Experience building end-to-end solutions with Power BI (data modeling, DAX, reporting)
+
+Exposure to or experience with Microsoft Fabric (or similar modern data platforms)
+
+Solid understanding of data architecture patterns, including Medallion architecture
+
+Ability to work in ambiguous environments and reverse-engineer existing systems
+
+Strong communication skills with experience working directly with business stakeholders
+
+Nice to Have
+Experience with Notebooks (Spark / PySpark)
+
+Background in data platform migrations or modernization initiatives
+
+Experience supporting financial or multi-entity reporting environments
+
+Work Model
+Remote team with coverage aligned to US Mountain / Eastern time zones
+
+Opportunity to lead and build a team from the ground up

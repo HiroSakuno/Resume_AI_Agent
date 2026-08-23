@@ -13,6 +13,7 @@ from Agents.job_parser import (
     write_parsed_job_description,
 )
 from Agents.experience_matcher import OUTPUT_DIR as STEP2_OUTPUT_DIR
+from Agents.project_matcher import OUTPUT_DIR as STEP3_OUTPUT_DIR, run_project_matcher
 from Agents.resume_renderer import render_resume
 
 
@@ -48,7 +49,14 @@ def run_experience_matching(source_file: Path, parsed_job_description: dict) -> 
         return json.loads(fallback_output_path.read_text(encoding="utf-8"))
 
 
-def run_next_step(source_file: Path, parsed_job_description: dict) -> tuple[Path, Path | None]:
+def run_next_step(source_file: Path, parsed_job_description: dict) -> tuple[Path | None, Path | None]:
+    fallback_output_path = STEP3_OUTPUT_DIR / f"{source_file.stem}.json"
+    if not fallback_output_path.exists():
+        try:
+            run_project_matcher(source_file, parsed_job_description)
+        except Exception:
+            if not fallback_output_path.exists():
+                raise
     return render_resume(source_file, parsed_job_description)
 
 
@@ -56,8 +64,8 @@ def main() -> None:
     source_file, parsed_job_description = run_job_parser()
     run_experience_matching(source_file, parsed_job_description)
     tex_path, pdf_path = run_next_step(source_file, parsed_job_description)
-    print(f"Rendered resume template: {tex_path}")
     if pdf_path is None:
+        print(f"Rendered resume template: {tex_path}")
         print("PDF build skipped: no LaTeX compiler found. Install `pdflatex`, `tectonic`, or `latexmk`.")
     else:
         print(f"Built PDF: {pdf_path}")

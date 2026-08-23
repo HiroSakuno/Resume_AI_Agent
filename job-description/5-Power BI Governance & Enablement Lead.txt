@@ -1,0 +1,39 @@
+Role: Power BI Governance & Enablement Lead (Remote, B2B)
+Location: Fully Remote
+Time Zone: USA EST Time Zone
+Engagement: Full-time (40 hours/week), B2B Contract - PTO's not included 
+Duration: 6+ months
+Start Date: August (available in ~3 weeks)
+Interview Process: 2–3 stages
+
+Job Summary: 
+We are seeking an experienced Power BI Governance & Enablement Lead to own the governance, administration, and continuous improvement of our enterprise Power BI environment. This role focuses on building governance frameworks, defining standards, enabling self-service analytics, and ensuring scalable, secure, and trusted reporting solutions.
+
+The ideal candidate is a Power BI expert with strong knowledge of Microsoft Fabric, semantic modeling, security, analytics architecture, and stakeholder management. This person will act as the platform owner, mentor teams, and drive adoption of best practices across the organization.
+
+Key Responsibilities: 
+•⁠  ⁠Establish and maintain Power BI governance frameworks, standards, and best practices. 
+•⁠  ⁠Lead Power BI administration, architecture, security, and platform improvements. 
+•⁠  ⁠Design and manage enterprise semantic models, certified datasets, shared dimensions, and reusable reporting assets. 
+•⁠  ⁠Define KPI governance, reporting standards, documentation, templates, and development processes. 
+•⁠  ⁠Ensure effective use of Power BI security features, including RLS, OLS, workspace governance, and access management. 
+•⁠  ⁠Support Microsoft Fabric integration, including Lakehouse, Warehouse, OneLake, Direct Lake, Data Factory, and Power BI. 
+•⁠  ⁠Optimize solutions using advanced DAX, Power Query, and performance tuning techniques. 
+•⁠  ⁠Develop training materials, mentor developers, and promote self-service analytics adoption. 
+•⁠  ⁠Support deployment pipelines, DevOps practices, source control, and CI/CD processes. 
+•⁠  ⁠Explore AI capabilities within Power BI, Microsoft Fabric, and Copilot technologies. 
+Required Qualifications:
+•⁠  ⁠Bachelor’s degree in Computer Science, Information Systems, Data Analytics, Engineering, or related field. 
+•⁠  ⁠7+ years of experience with Power BI, BI platforms, analytics, or enterprise reporting. 
+•⁠  ⁠Strong expertise in Power BI governance, administration, architecture, and semantic modeling. 
+•⁠  ⁠Advanced knowledge of DAX, Power Query, visualization best practices, and performance optimization. 
+•⁠  ⁠Hands-on experience with Microsoft Fabric and enterprise-scale Power BI environments. 
+•⁠  ⁠Strong understanding of data security, governance, metadata, and reporting standards. 
+•⁠  ⁠Experience creating documentation, training programs, and enablement materials. 
+•⁠  ⁠Familiarity with Power BI Deployment Pipelines, DevOps, source control, and CI/CD. 
+•⁠  ⁠Excellent communication and stakeholder management skills with the ability to influence teams. 
+Nice to Have: 
+•⁠  ⁠Experience with Celonis Process Mining and Process Intelligence. 
+•⁠  ⁠Knowledge of Microsoft Purview, data lineage, and metadata management. 
+•⁠  ⁠Microsoft certifications such as PL-300, Fabric Analytics Engineer, or Fabric Administrator. 
+•⁠  ⁠Experience supporting large-scale Power BI and Microsoft Fabric implementations.
