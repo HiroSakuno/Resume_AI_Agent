@@ -226,17 +226,22 @@ def load_selected_projects(source_file: Path) -> list[dict]:
     return matched_projects_payload.get("selected_projects", [])
 
 
-def format_certifications_and_languages_lines(education_payload: dict, languages_payload: dict) -> str:
+def format_certifications_and_languages_lines(
+    education_payload: dict,
+    languages_payload: dict,
+    include_certifications: bool = True,
+    include_languages: bool = True,
+) -> str:
     lines: list[str] = []
 
     certifications = education_payload.get("certifications", [])
-    if certifications:
+    if include_certifications and certifications:
         certification_names = [certification["name"] for certification in certifications if certification.get("name")]
         if certification_names:
             lines.append(f"    \\textbf{{Certifications}}: {latex_escape(', '.join(certification_names))} \\\\")
 
     spoken_languages = languages_payload.get("spoken_languages", [])
-    if spoken_languages:
+    if include_languages and spoken_languages:
         language_items = [
             f"{language['language']} ({language['proficiency']})"
             for language in spoken_languages
@@ -247,8 +252,18 @@ def format_certifications_and_languages_lines(education_payload: dict, languages
     return "\n".join(lines).rstrip("\\")
 
 
-def format_certifications_and_languages_section(education_payload: dict, languages_payload: dict) -> str:
-    section_lines = format_certifications_and_languages_lines(education_payload, languages_payload)
+def format_certifications_and_languages_section(
+    education_payload: dict,
+    languages_payload: dict,
+    include_certifications: bool = True,
+    include_languages: bool = True,
+) -> str:
+    section_lines = format_certifications_and_languages_lines(
+        education_payload,
+        languages_payload,
+        include_certifications=include_certifications,
+        include_languages=include_languages,
+    )
     if not section_lines:
         return ""
 
@@ -458,8 +473,13 @@ def render_resume(source_file: Path, job_parser_output: dict) -> tuple[Path | No
         "PLACEHOLDERSKILLSSECTION": format_certifications_and_languages_section(
             education_payload,
             languages_payload,
+            include_certifications=False,
+            include_languages=include_languages_section,
         ),
-        "PLACEHOLDERCERTIFICATIONSSECTION": "",
+        "PLACEHOLDERCERTIFICATIONSSECTION": format_certifications_section(
+            education_payload,
+            include_certifications_section,
+        ),
         "PLACEHOLDERLANGUAGESSECTION": "",
     }
     rendered_resume = fill_template(template, replacements)
