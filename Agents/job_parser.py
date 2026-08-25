@@ -7,10 +7,11 @@ from pathlib import Path
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
 
+from Agents.output_paths import OUTPUT_ROOT_DIR, get_step_output_path
 from Agents.project_config import get_job_parser_agent_name, get_job_parser_endpoint
 
 JOB_DESCRIPTION_DIR = Path("job-description")
-OUTPUT_DIR = Path("outputs") / "step1"
+OUTPUT_DIR = OUTPUT_ROOT_DIR
 
 
 def find_latest_text_file(directory: Path) -> Path:
@@ -55,8 +56,8 @@ def parse_latest_job_description() -> tuple[Path, dict]:
 
 
 def write_parsed_job_description(source_file: Path, parsed_output: dict) -> Path:
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    output_path = OUTPUT_DIR / f"{source_file.stem}.json"
+    output_path = get_step_output_path(source_file, "step1")
+    output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(parsed_output, indent=2), encoding="utf-8")
     return output_path
 

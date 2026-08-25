@@ -6,16 +6,19 @@ import shutil
 import subprocess
 from pathlib import Path
 
+from Agents.output_paths import (
+    OUTPUT_ROOT_DIR,
+    get_job_output_dir,
+    get_resume_tex_path,
+    get_step_output_path,
+)
 
 PROFILE_PATH = Path("Data") / "profile.json"
 EXPERIENCE_PATH = Path("Data") / "experience.json"
 PROJECTS_PATH = Path("Data") / "projects.json"
 EDUCATION_PATH = Path("Data") / "education.json"
 LANGUAGES_PATH = Path("Data") / "languages.json"
-STEP1_DIR = Path("outputs") / "step1"
-STEP2_DIR = Path("outputs") / "step2"
-STEP3_DIR = Path("outputs") / "step3"
-OUTPUT_DIR = Path("outputs") / "output"
+OUTPUT_DIR = OUTPUT_ROOT_DIR
 TEMPLATE_PATH = Path("main.tex")
 JOB_DESCRIPTION_DIR = Path("job-description")
 
@@ -221,7 +224,7 @@ def format_projects_section(selected_projects: list[dict]) -> str:
 
 
 def load_selected_projects(source_file: Path) -> list[dict]:
-    matched_projects_path = STEP3_DIR / f"{source_file.stem}.json"
+    matched_projects_path = get_step_output_path(source_file, "step3")
     matched_projects_payload = load_json(matched_projects_path)
     return matched_projects_payload.get("selected_projects", [])
 
@@ -452,7 +455,7 @@ def render_resume(source_file: Path, job_parser_output: dict) -> tuple[Path | No
     all_experiences = load_json(EXPERIENCE_PATH)
     education_payload = load_json(EDUCATION_PATH)
     languages_payload = load_json(LANGUAGES_PATH)
-    matched_experiences = load_json(STEP2_DIR / f"{source_file.stem}.json")
+    matched_experiences = load_json(get_step_output_path(source_file, "step2"))
     selected_projects = load_selected_projects(source_file)
     render_options = get_render_options(profile)
     max_experience_bullets = render_options.get("max_experience_bullets", 3)
@@ -484,8 +487,8 @@ def render_resume(source_file: Path, job_parser_output: dict) -> tuple[Path | No
     }
     rendered_resume = fill_template(template, replacements)
 
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    tex_path = OUTPUT_DIR / f"{source_file.stem}.tex"
+    get_job_output_dir(source_file).mkdir(parents=True, exist_ok=True)
+    tex_path = get_resume_tex_path(source_file)
     tex_path.write_text(rendered_resume, encoding="utf-8")
 
     pdf_path = try_build_pdf(tex_path)
@@ -497,7 +500,7 @@ def render_resume(source_file: Path, job_parser_output: dict) -> tuple[Path | No
 
 def render_latest_resume() -> tuple[Path | None, Path | None]:
     source_file = find_latest_text_file(JOB_DESCRIPTION_DIR)
-    job_parser_output = load_json(STEP1_DIR / f"{source_file.stem}.json")
+    job_parser_output = load_json(get_step_output_path(source_file, "step1"))
     return render_resume(source_file, job_parser_output)
 
 

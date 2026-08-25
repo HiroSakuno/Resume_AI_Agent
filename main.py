@@ -6,20 +6,19 @@ from pathlib import Path
 from Agents.experience_matcher import run_experience_matcher
 from Agents.job_parser import (
     JOB_DESCRIPTION_DIR,
-    OUTPUT_DIR as STEP1_OUTPUT_DIR,
     find_latest_text_file,
     load_parsed_job_description,
     parse_latest_job_description,
     write_parsed_job_description,
 )
-from Agents.experience_matcher import OUTPUT_DIR as STEP2_OUTPUT_DIR
-from Agents.project_matcher import OUTPUT_DIR as STEP3_OUTPUT_DIR, run_project_matcher
+from Agents.output_paths import get_step_output_path
+from Agents.project_matcher import run_project_matcher
 from Agents.resume_renderer import render_resume
 
 
 def run_job_parser() -> tuple[Path, dict]:
     source_file = find_latest_text_file(JOB_DESCRIPTION_DIR)
-    fallback_output_path = STEP1_OUTPUT_DIR / f"{source_file.stem}.json"
+    fallback_output_path = get_step_output_path(source_file, "step1")
     if fallback_output_path.exists():
         parsed_output = load_parsed_job_description(fallback_output_path)
         return source_file, parsed_output
@@ -36,7 +35,7 @@ def run_job_parser() -> tuple[Path, dict]:
 
 
 def run_experience_matching(source_file: Path, parsed_job_description: dict) -> list[dict]:
-    fallback_output_path = STEP2_OUTPUT_DIR / f"{source_file.stem}.json"
+    fallback_output_path = get_step_output_path(source_file, "step2")
     if fallback_output_path.exists():
         return json.loads(fallback_output_path.read_text(encoding="utf-8"))
 
@@ -50,7 +49,7 @@ def run_experience_matching(source_file: Path, parsed_job_description: dict) -> 
 
 
 def run_next_step(source_file: Path, parsed_job_description: dict) -> tuple[Path | None, Path | None]:
-    fallback_output_path = STEP3_OUTPUT_DIR / f"{source_file.stem}.json"
+    fallback_output_path = get_step_output_path(source_file, "step3")
     if not fallback_output_path.exists():
         try:
             run_project_matcher(source_file, parsed_job_description)

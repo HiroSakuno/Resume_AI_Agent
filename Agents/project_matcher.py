@@ -6,13 +6,14 @@ from pathlib import Path
 from azure.ai.projects import AIProjectClient
 from azure.identity import DefaultAzureCredential
 
+from Agents.output_paths import OUTPUT_ROOT_DIR, get_step_output_path
 from Agents.project_config import (
     get_project_matcher_agent_name,
     get_project_matcher_endpoint,
 )
 
 PROJECTS_PATH = Path("Data") / "projects.json"
-OUTPUT_DIR = Path("outputs") / "step3"
+OUTPUT_DIR = OUTPUT_ROOT_DIR
 
 
 def load_projects_payload() -> dict:
@@ -42,8 +43,8 @@ def match_projects(job_parser_output: dict, projects_payload: dict) -> dict:
 
 
 def write_project_matcher_output(source_file: Path, matched_projects: dict) -> Path:
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    output_path = OUTPUT_DIR / f"{source_file.stem}.json"
+    output_path = get_step_output_path(source_file, "step3")
+    output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(matched_projects, indent=2), encoding="utf-8")
     return output_path
 

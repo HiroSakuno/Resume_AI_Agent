@@ -1,0 +1,36 @@
+Senior Data Engineer (Power BI)
+
+Client
+Our client is one of the world's largest investment funds that manages hundreds of billions of dollars. The company's business is focused on several areas: private equity, venture capital, real assets, investment solutions, and global market strategies.
+Join a great company, not merely an individual project
+Project overview
+DataArt specialists work on the project in several areas related to the core business of the client. We are helping to develop a decision support system for investment analysts. The project includes development, optimization, and speeding up applications and databases.
+Position overview
+We are looking for a hands-on Analytics Engineer who can work across both data engineering and analytics/reporting. This is not a Power BI-only role. The ideal candidate should be comfortable owning data tasks end-to-end — from understanding source data and building transformation pipelines to creating well-designed datasets and Power BI dashboards.
+
+We are looking for someone who is data-first and hands-on. The candidate should be equally comfortable writing SQL/dbt transformations, investigating a data issue, designing an analytics model, and building or modifying a Power BI report.
+
+This is a contract position, so we are particularly looking for someone who can ramp up quickly, understand an existing data environment, take ownership of assigned work, and consistently deliver completed solutions.
+Responsibilities
+
+Build, maintain, and enhance data pipelines and transformation workflows using dbt.
+Develop clean, reliable, and reusable data models for analytics and reporting.
+Work with SQL and data warehouse platforms to investigate data, troubleshoot issues, and implement transformations.
+Develop and maintain Power BI dashboards, reports, semantic models, and DAX measures.
+Translate business requirements into appropriate data models and reporting solutions.
+Perform data analysis, validation, reconciliation, and data quality checks.
+Troubleshoot data issues across the pipeline, from source through transformation to reporting.
+Take ownership of assigned tasks and independently drive them through development, testing, and completion.
+Work closely with business, analytics, and engineering teams to deliver production-ready solutions.
+Requirements
+
+Strong SQL and data analysis skills.
+Hands-on experience with dbt and modern ELT/data transformation practices.
+Solid understanding of data modeling, including dimensional modeling, fact/dimension structures, and analytics datasets.
+Experience working with a modern cloud data warehouse, preferably Snowflake.
+Strong working experience with Power BI, including data modeling, DAX, dashboard development, and performance considerations.
+Ability to understand unfamiliar datasets and identify relationships, data quality issues, and transformation requirements.
+Experience debugging and supporting existing data pipelines and analytics solutions.
+Comfortable working independently in a fast-paced environment and delivering tasks with limited supervision.
+Strong experience with Python and Airflow.
+Strong experience with AWS cloud services.

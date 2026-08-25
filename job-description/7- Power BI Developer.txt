@@ -1,0 +1,31 @@
+Power BI Developer
+Overview
+As a Power BI Developer at, you will design and build complex dimensional data models and reports from the ground up, delivering tailored business solutions. You will audit and enhance existing Power BI implementations to improve performance and usability.
+Collaborating closely with clients’ data teams, you will develop innovative, company-wide data solutions and create both ad hoc and enterprise-level reports. You will also automate dataflows and reporting processes to ensure efficient and timely delivery. Providing guidance and mentorship to team members, you will help establish and lead the Power BI Center of Excellence, promoting best practices and standardization across projects.
+MAJOR RESPONSIBILITIES
+•	Design and build complex dimensional data models and reports from the ground up to meet business needs.
+•	Audit and assess existing Power BI implementations to identify areas for performance and usability improvements.
+•	Collaborate closely with client data teams to develop innovative, company-wide data solutions.
+•	Develop both ad hoc and enterprise-level Power BI reports and dashboards tailored to client requirements.
+•	Automate dataflows, report publishing, and push notifications to streamline reporting processes.
+•	Provide technical guidance and mentorship to team members, fostering their growth and best practices.
+•	Lead and establish the Power BI Center of Excellence to drive standardization and governance across projects.
+Required Skills:
+•	Intermediate proficiency in DAX.
+•	Understanding of relational databases, ETL concepts, and dimensional modeling.
+•	Working knowledge of Power Query.
+•	Experience with row-level data security and report permissions/roles.
+•	Proficiency in optimizing data models for performance.
+•	Ability to communicate effectively with both technical and non-technical audiences.
+•	Able to work independently and collaboratively, with strong analytical skills, sound judgment, and attention to detail in fast-paced environments.
+Must-have skills
+Power BI, SQL
+Nice to have skills
+DAX (Data Analysis Expressions), ETL
+Job details
+•	Contract duration: 12 months
+•	Work set up: Remote
+•	Time zone: UTC-5
+•	Overlap: 8hrs
+•	Leadership exp.: No
+
