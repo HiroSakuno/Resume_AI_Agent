@@ -226,7 +226,29 @@ def format_projects_section(selected_projects: list[dict]) -> str:
 def load_selected_projects(source_file: Path) -> list[dict]:
     matched_projects_path = get_step_output_path(source_file, "step3")
     matched_projects_payload = load_json(matched_projects_path)
-    return matched_projects_payload.get("selected_projects", [])
+    selected_projects = matched_projects_payload.get("selected_projects", [])
+
+    strength_scores = {
+        "weak": 4,
+        "medium": 6,
+        "strong": 8,
+    }
+
+    def get_match_score(project: dict) -> int:
+        match_score = project.get("match_score")
+        if isinstance(match_score, int) and not isinstance(match_score, bool):
+            return match_score
+        return strength_scores.get(project.get("match_strength", "weak"), 0)
+
+    return sorted(
+        (
+            project
+            for project in selected_projects
+            if get_match_score(project) >= 5
+        ),
+        key=get_match_score,
+        reverse=True,
+    )
 
 
 def format_certifications_and_languages_lines(
