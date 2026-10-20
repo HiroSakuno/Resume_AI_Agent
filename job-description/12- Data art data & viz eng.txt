@@ -1,0 +1,35 @@
+Data & Visualization Engineer with Snowflake, Analytics Platform
+
+Technology stack
+Snowflake, SQL, Power BI, Looker, Tableau, Copilot, GenAI tools, dbt, SSIS, SSRS, DAX, Power Query, PBIP
+Project overview
+This role supports an analytics focused environment where data models, semantic views, and dashboards are designed to provide a consistent source of truth for stakeholders. The work includes transforming business requirements into analytical solutions, improving reporting performance, and contributing to data governance.
+Position overview
+We are looking for a Data & Visualization Engineer with experience in Snowflake, SQL, data modeling, and BI tools. You will be involved in building data models, developing dashboards, supporting stakeholders, and improving analytics workflows across the organization.
+Responsibilities
+
+Design and build data models connecting the Snowflake data warehouse to downstream analytics layers
+Develop and optimize data transformation logic, including views, schemas, and staging areas
+Define business logic and calculations to support a single source of truth
+Document data lineage and relationships within data models
+Design and develop dashboards with a focus on data storytelling, visual design, and user experience
+Build analytics solutions using BI tools such as Power BI and Looker based on business and stakeholder needs
+Troubleshoot and optimize report performance and data quality issues
+Translate business requirements into analytical solutions
+Collaborate with cross functional stakeholders to understand data needs
+Present analytical findings and insights to leadership and operational teams
+Lead proof of concept projects to test and implement analytical patterns and technologies
+Contribute to data governance activities, including naming conventions, access management, and security compliance
+Maintain technical documentation for data pipelines, models, and dashboard inventories
+Requirements
+
+Experience with Snowflake and advanced SQL, including query optimization, schema design, and semantic views
+Understanding of dimensional modeling, data warehousing concepts, and structuring data for analytics
+Experience with a modern BI tool such as Looker, Power BI, or Tableau
+Experience with dashboard design principles, data storytelling, and user focused visualization
+Practical experience working in AI assisted development settings using Copilot or other GenAI tools
+Nice to have
+
+Familiarity or hands on experience with dbt for transformation and modeling workflows
+Familiarity with the Microsoft BI ecosystem, including SSIS and SSRS
+Familiarity with Power BI specific formats such as DAX, Power Query, and PBIP
