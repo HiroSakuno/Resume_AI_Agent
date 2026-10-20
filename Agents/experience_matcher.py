@@ -84,6 +84,7 @@ def rank_experience_facts(experiences: list[dict], job_description: dict) -> lis
                 "id": experience["id"],
                 "company": experience["company"],
                 "role": experience["role"],
+                "related_titles": experience.get("related_titles", []),
                 "facts": top_facts,
                 "total_score": sum(item["score"] for item in top_facts),
             }
@@ -99,6 +100,7 @@ def build_next_agent_payload(ranked_experiences: list[dict]) -> list[dict]:
             "id": experience["id"],
             "company": experience["company"],
             "role": experience["role"],
+            "related_titles": experience["related_titles"],
             "facts": [
                 {
                     "text": item["fact"],

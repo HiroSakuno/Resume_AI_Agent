@@ -151,7 +151,7 @@ def format_experience_entries(
                 [
                     "\\resumeSubheading",
                     f"  {{{latex_escape(source_experience['company'])}}}{{{latex_escape(source_experience.get('period', ''))}}}",
-                    f"  {{{format_secondary_text(source_experience['role'])}}}{{}}",
+                    f"  {{{format_secondary_text(matched_experience.get('selected_title') or source_experience['role'])}}}{{}}",
                     format_bullet_items(selected_facts),
                 ]
             )
@@ -307,19 +307,16 @@ def format_certifications_and_languages_section(
 
 
 def format_education_entries(education_payload: dict) -> str:
-    blocks: list[str] = []
+    lines: list[str] = []
     for education in education_payload.get("formal_education", []):
-        blocks.append(
-            "\n".join(
-                [
-                    "\\resumeSubheading",
-                    f"  {{{latex_escape(education['institution'])}}}{{{latex_escape(str(education.get('graduation_year', '')))}}}",
-                    f"  {{{format_secondary_text(education['degree'])}}}{{{format_secondary_text(education.get('location', ''))}}}",
-                ]
-            )
+        institution = latex_escape(education["institution"])
+        degree = latex_escape(education["degree"])
+        location = latex_escape(education.get("location", ""))
+        graduation_year = latex_escape(str(education.get("graduation_year", "")))
+        lines.append(
+            rf"\item \small{{\textbf{{{institution}}} | {degree} | {location} \hfill {graduation_year}}}"
         )
-
-    return "\n\n".join(blocks)
+    return "\n".join(lines)
 
 
 def format_education_section(education_payload: dict) -> str:
@@ -339,23 +336,12 @@ def format_education_section(education_payload: dict) -> str:
 
 
 def format_certifications_entries(education_payload: dict) -> str:
-    blocks: list[str] = []
+    lines: list[str] = []
     for certification in education_payload.get("certifications", []):
-        status = certification.get("status", "").title()
-        issuer = certification.get("issuer", "")
-        subtitle_parts = [part for part in [issuer, status] if part]
-        subtitle = " | ".join(subtitle_parts)
-        blocks.append(
-            "\n".join(
-                [
-                    "\\resumeSubheading",
-                    f"  {{{latex_escape(certification['name'])}}}{{{latex_escape(str(certification.get('year', '')))}}}",
-                    f"  {{{format_secondary_text(subtitle)}}}{{}}",
-                ]
-            )
-        )
-
-    return "\n\n".join(blocks)
+        name = latex_escape(certification["name"])
+        year = latex_escape(str(certification.get("year", "")))
+        lines.append(rf"\item \small{{{name} \hfill {year}}}")
+    return "\n".join(lines)
 
 
 def format_certifications_section(education_payload: dict, include_section: bool) -> str:

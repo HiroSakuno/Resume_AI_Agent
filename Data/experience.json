@@ -3,6 +3,12 @@
     "id": "4",
     "company": "Anheuser-Busch InBev",
     "role": "Senior BI Engineer | Data Analyst",
+    "related_titles": [
+      "Senior BI Engineer",
+      "Senior BI Engineer",
+      "Senior Power BI Developer",
+      "Senior Data Analyst"
+    ],
     "period": "Sep 2025 - Present",
     "facts": [
       "Optimized Power BI semantic models using Tabular Editor 3 by removing unused measures, tables, and dependencies, improving report efficiency, maintainability, and migration readiness.",
@@ -19,6 +25,11 @@
     "id": "3",
     "company": "Sicredi",
     "role": "Senior BI Engineer | Data Analyst",
+    "related_titles": [
+      "Senior BI Engineer",
+      "Senior Power BI Developer",
+      "Senior Data Analyst"
+    ],
     "period": "Mar 2024 - Sep 2025",
     "facts": [
       "Built Power BI dashboards and reports to track social program results across 3,600 schools in Brazil, providing stakeholders with clear visibility into program performance, coverage, and impact indicators.",
@@ -32,6 +43,12 @@
     "id": "2",
     "company": "Grupo NC",
     "role": "Power BI Developer | Data Analyst",
+    "related_titles": [
+      "Power BI Developer",
+      "BI Developer",
+      "BI Engineer",
+      "Data Analyst"
+    ],
     "period": "Fev 2023 - Fev 2024",
     "facts": [
       "Developed Power BI solutions over datasets with 250M+ rows, using DirectQuery, optimized data models, and query reduction techniques to improve performance and usability.",
@@ -46,6 +63,10 @@
     "id": "1",
     "company": "Dato Tecnologia",
     "role": "Power BI Developer | Data Analyst",
+    "related_titles": [
+      "Power BI Developer",
+      "Data Analyst"
+    ],
     "period": "Apr 2020 - Dec 2022",
     "facts": [
       "Standardized and parameterized Power BI reports used across 50+ accounting clients, improving report consistency, scalability, and delivery efficiency through reusable layouts, data models, and business logic.",

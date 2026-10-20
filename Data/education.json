@@ -9,14 +9,12 @@
   ],
   "certifications": [
     {
-      "name": "Power BI Data Analyst Associate (PL-300)",
-      "issuer": "Microsoft",
+      "name": "Microsoft: Power BI Data Analyst Associate (PL-300)",
       "status": "active",
       "year": 2023
     },
     {
-      "name": "Fabric Data Engineer Associate (DP-700)",
-      "issuer": "Microsoft",
+      "name": "Microsoft: Fabric Data Engineer Associate (DP-700)",
       "status": "active",
       "year": 2026
     }
